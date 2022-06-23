@@ -1,0 +1,110 @@
+#:import ScrollEffect  kivy.effects.scroll.ScrollEffect
+
+<SubjectCard>:
+    elevation: 10
+    md_bg_color: 1, 1, 1, 1
+    radius: [8]
+    MDFloatLayout:
+        MDFloatLayout:
+            id: bar
+            size_hint: .01, .8
+            pos_hint: {'center_x': .02, 'center_y': .5}
+            md_bg_color: rgba(251, 187, 29, 255)
+        MDLabel:
+            id: sub
+            markup: True
+            text: root.heading_text
+            font_name: "Andika"
+            font_size: '40sp'
+            size_hint_x: .8
+            pos_hint: {'center_x': .46, 'center_y': .75}
+        MDLabel:
+            id: description
+            text: root.description_text
+            font_name: "Andika"
+            markup: True
+            size_hint_x: .9
+            line_height: .8
+            pos_hint: {'center_x': .51, 'center_y': .2}
+
+<SearchField@MDFloatLayout>:
+    size_hint: .2, .089
+    pos_hint: {'center_x': .8, 'center_y': .915}
+    canvas:
+        Color:
+            rgb: (238/255, 238/255, 238/255, 1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [20]
+    TextInput:
+        hint_text: "Search Subjects"
+        size_hint: 1, None
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        height: self.minimum_height
+        multiline: False
+        cursor_color: 0, 0, 0, .5
+        foreground_color: 0, 0, 0, .5
+        background_color: 0, 0, 0, 0
+        font_name: "LuckiestGuy"
+        cursor_width: "2sp"
+        padding: 15
+        font_size: "15sp"
+
+<BackButton@MDFillRoundFlatIconButton>:
+    icon: "arrow-left"
+    text: "BACK"
+    font_name: "LuckiestGuy"
+    font_size: "15sp"
+    md_bg_color: rgba(251, 187, 29, 255)
+    size_hint: .15, .089
+
+<SubjectListScreen>:
+    name: "subjects"
+    MDFloatLayout:
+        md_bg_color: rgba(60, 12, 156, 255)
+        MDLabel:
+            text: "All Subjects"
+            font_name: "LuckiestGuy"
+            font_size: '40sp'
+            pos_hint: {'center_x': .5, 'center_y': .9}
+            halign: 'center'
+            color: 1, 1, 1, 1
+            line_height: 1.1
+
+        SearchField:
+            id: search
+
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
+            size_hint: .85, .85
+            pos_hint: {'center_x': .5, 'y': 0}
+            bar_width: 1
+            effect_cls: ScrollEffect
+
+            GridLayout:
+                id: subject_list
+                cols: 1
+                height: self.minimum_height
+                row_default_height: 80
+                size_hint_y: None
+                padding: 15, 10
+                spacing: 15, 10
+
+                SubjectCard:
+                    heading_text: "Mathematics"
+                    description_text: "Learn Addition, subtraction, multiplication..."
+                    on_release: root.subject_choice('math_start')
+                SubjectCard:
+                    heading_text: "English"
+                    description_text: "Learn grammar, vocabularies, spelling, composition..."
+                    on_release: root.subject_choice('math_start')
+                SubjectCard:
+                    heading_text: "Kiswahili"
+                    description_text: "Jifunze misamiati ya lugha, ngeli, mitungo..."
+                    on_release: root.subject_choice('math_start')
+                SubjectCard:
+                    heading_text: "Science"
+                    description_text: "Learn grammar, vocabularies, spelling, composition..."
+                    on_release: root.subject_choice('math_start')

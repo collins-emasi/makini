@@ -1,0 +1,56 @@
+<SignButton>:
+    font_name: "LuckiestGuy"
+    font_size: "80sp"
+    background_color: 1, 1, 1, 0
+    on_release: app.root.get_screen('select_sign').select_sign(self.text)
+    canvas.before:
+        Color:
+            rgb: root.bg_color
+        RoundedRectangle:
+            pos: self.x, self.y + 5
+            size: self.size
+            radius: [10]
+
+
+<SelectSignScreen>:
+    name: "select_sign"
+    MDFloatLayout:
+        md_bg_color: rgba(60, 12, 156, 255)
+
+        MDLabel:
+            text: "Select Sign"
+            font_name: 'LuckiestGuy'
+            font_size: '60sp'
+            halign: 'center'
+            pos_hint: {'center_x': .5, 'center_y': .85}
+            color: 1, 1, 1, 1
+            line_height: 1.1
+        MDGridLayout:
+            rows: 2
+            rows: 2
+            size_hint: .5, .5
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            spacing: 15
+            SignButton:
+                text: "+"
+                bg_color: 40/255, 6/255, 109/255, 1
+            SignButton:
+                text: "×"
+                bg_color: 87/255, 23/255, 216/255, 1
+            SignButton:
+                text: "–"
+                bg_color: 87/255, 23/255, 216/255, 1
+            SignButton:
+                text: "÷"
+                bg_color: 40/255, 6/255, 109/255, 1
+
+
+        MDFillRoundFlatButton:
+            text: "Back"
+            font_name: "LuckiestGuy"
+            font_size: '40sp'
+            size_hint: .55, .12
+            md_bg_color : rgba(251, 187, 29, 255)
+            pos_hint: {'center_x': .5, 'center_y': .15}
+            on_release:
+                root.manager.current = 'math_start'

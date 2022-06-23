@@ -1,0 +1,67 @@
+<OptionButton>:
+    font_name: "LuckiestGuy"
+    font_size: "60sp"
+    background_color: 1, 1, 1, 0
+    bg_color: 40/255, 6/255, 109/255, 1
+    on_release: app.root.get_screen('select_sign').select_sign(self.text)
+    canvas.before:
+        Color:
+            rgb: root.bg_color
+        RoundedRectangle:
+            pos: self.x, self.y + 5
+            size: self.size
+            radius: [10]
+
+
+<QuizScreen>:
+    question: question
+    name: "quiz"
+    MDFloatLayout:
+        md_bg_color: rgba(60, 12, 156, 255)
+
+        MDLabel:
+            id: question
+            text: "49 + 49 = ?"
+            font_name: 'LuckiestGuy'
+            font_size: '60sp'
+            halign: 'center'
+            pos_hint: {'center_x': .5, 'center_y': .86}
+            color: 1, 1, 1, 1
+            line_height: 1.1
+        MDGridLayout:
+            rows: 2
+            rows: 2
+            size_hint: .45, .45
+            row_default_height: '40sp'
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            spacing: 15
+            OptionButton:
+                text: "209"
+            OptionButton:
+                text: "48"
+            OptionButton:
+                text: "98"
+            OptionButton:
+                text: "108"
+
+        MDFillRoundFlatButton:
+            text: "Back"
+            font_name: "LuckiestGuy"
+            font_size: '40sp'
+            size_hint: .27, .12
+            text_color: rgba(251, 187, 29, 255)
+            md_bg_color : 1, 1, 1, 1
+            pos_hint: {'center_x': .3, 'center_y': .15}
+            on_release:
+                root.manager.current = 'select_sign'
+
+        MDFillRoundFlatButton:
+            text: "Next"
+            font_name: "LuckiestGuy"
+            font_size: '40sp'
+            size_hint: .27, .12
+            text_color: rgba(251, 187, 29, 255)
+            md_bg_color : 1, 1, 1, 1
+            pos_hint: {'center_x': .7, 'center_y': .15}
+            on_release:
+                root.manager.current = 'math_start'

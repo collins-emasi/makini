@@ -1,0 +1,37 @@
+<MathStartScreen>:
+    name: "math_start"
+    MDFloatLayout:
+        md_bg_color: rgba(60, 12, 156, 255)
+        Image:
+            source: "assets/imgs/math/background.png"
+            size: 1.5, 1
+
+        MDLabel:
+            text: "Makini Math\nSolver"
+            font_name: 'LuckiestGuy'
+            font_size: '50sp'
+            halign: 'center'
+            pos_hint: {'center_x': .5, 'center_y': .7}
+            color: 1, 1, 1, 1
+            line_height: 1.1
+
+        MDFillRoundFlatButton:
+            text: "Back"
+            font_name: "LuckiestGuy"
+            font_size: '40sp'
+            size_hint: .27, .12
+            md_bg_color : rgba(251, 187, 29, 255)
+            pos_hint: {'center_x': .3, 'center_y': .15}
+            on_release:
+                root.manager.current = 'subjects'
+
+        MDFillRoundFlatButton:
+            text: "Start"
+            font_name: "LuckiestGuy"
+            font_size: '40sp'
+            size_hint: .27, .12
+            md_bg_color : rgba(251, 187, 29, 255)
+            pos_hint: {'center_x': .7, 'center_y': .15}
+            on_release:
+                root.manager.current = 'select_sign'
+
