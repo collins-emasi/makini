@@ -60,7 +60,6 @@
     size_hint: .15, .089
 
 <SubjectListScreen>:
-    name: "subjects"
     MDFloatLayout:
         md_bg_color: rgba(60, 12, 156, 255)
         MDLabel:
@@ -99,7 +98,7 @@
                 SubjectCard:
                     heading_text: "English"
                     description_text: "Learn grammar, vocabularies, spelling, composition..."
-                    on_release: root.subject_choice('math_start')
+                    on_release: root.subject_choice('english_start')
                 SubjectCard:
                     heading_text: "Kiswahili"
                     description_text: "Jifunze misamiati ya lugha, ngeli, mitungo..."
@@ -107,4 +106,4 @@
                 SubjectCard:
                     heading_text: "Science"
                     description_text: "Learn grammar, vocabularies, spelling, composition..."
-                    on_release: root.subject_choice('math_start')
+                    on_release: root.subject_choice('science_start')

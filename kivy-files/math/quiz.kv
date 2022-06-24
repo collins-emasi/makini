@@ -1,9 +1,10 @@
 <OptionButton>:
+    option_id: id
     font_name: "LuckiestGuy"
     font_size: "60sp"
     background_color: 1, 1, 1, 0
     bg_color: 40/255, 6/255, 109/255, 1
-    on_release: app.root.get_screen('select_sign').select_sign(self.text)
+    on_release: app.root.get_screen('quiz').quiz(self.text, self)
     canvas.before:
         Color:
             rgb: root.bg_color
@@ -36,13 +37,24 @@
             pos_hint: {'center_x': .5, 'center_y': .5}
             spacing: 15
             OptionButton:
-                text: "209"
+                id: option_1
             OptionButton:
-                text: "48"
+                id: option_2
             OptionButton:
-                text: "98"
+                id: option_3
             OptionButton:
-                text: "108"
+                id: option_4
+
+        MDFillRoundFlatButton:
+            text: "Quit"
+            font_name: "LuckiestGuy"
+            font_size: '40sp'
+            size_hint: .27, .12
+            text_color: 1, 1, 1, 1
+            md_bg_color : 1, 0, 0, .7
+            pos_hint: {'center_x': .2, 'center_y': .15}
+            on_release:
+                app.root.get_screen('quiz').final_score()
 
         MDFillRoundFlatButton:
             text: "Back"
@@ -51,7 +63,7 @@
             size_hint: .27, .12
             text_color: rgba(251, 187, 29, 255)
             md_bg_color : 1, 1, 1, 1
-            pos_hint: {'center_x': .3, 'center_y': .15}
+            pos_hint: {'center_x': .5, 'center_y': .15}
             on_release:
                 root.manager.current = 'select_sign'
 
@@ -62,6 +74,6 @@
             size_hint: .27, .12
             text_color: rgba(251, 187, 29, 255)
             md_bg_color : 1, 1, 1, 1
-            pos_hint: {'center_x': .7, 'center_y': .15}
+            pos_hint: {'center_x': .8, 'center_y': .15}
             on_release:
-                root.manager.current = 'math_start'
+                root.next_question()

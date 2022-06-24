@@ -1,2 +1,81 @@
 <FinalScoreScreen>:
+    correct: correct
+    wrong: wrong
+    percentage_score: percentage_score
+
     name: "final_score"
+    MDFloatLayout:
+        md_bg_color: rgba(60, 12, 156, 255)
+
+        MDLabel:
+            text: "Final Math\nScore"
+            font_name: 'LuckiestGuy'
+            font_size: '50sp'
+            halign: 'center'
+            pos_hint: {'center_x': .5, 'center_y': .82}
+            color: 1, 1, 1, 1
+            line_height: 1.1
+
+        MDLabel:
+            id: correct
+            text: "15 - Correct!"
+            font_name: 'LuckiestGuy'
+            font_size: '35'
+            halign: 'center'
+            size_hint: .8, .12
+            pos_hint: {'center_x': .5, 'center_y': .6}
+            color: 1, 1, 1, 1
+            line_height: 1.1
+            canvas.before:
+                Color:
+                    rgb: 0, 1, 0, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.x, self.y + 5
+                    radius: [10]
+
+        MDLabel:
+            id: wrong
+            text: "15 - Wrong!"
+            font_name: 'LuckiestGuy'
+            font_size: '35'
+            halign: 'center'
+            size_hint: .8, .12
+            pos_hint: {'center_x': .5, 'center_y': .45}
+            color: 1, 1, 1, 1
+            line_height: 1.1
+            canvas.before:
+                Color:
+                    rgb: 1, 0, 0, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.x, self.y + 5
+                    radius: [10]
+
+        MDLabel:
+            id: percentage_score
+            text: "64% Success!"
+            font_name: 'LuckiestGuy'
+            font_size: '35'
+            halign: 'center'
+            size_hint: .8, .12
+            pos_hint: {'center_x': .5, 'center_y': .3}
+            color: 1, 1, 1, 1
+            line_height: 1.1
+            canvas.before:
+                Color:
+                    rgb: rgba(40, 6, 109, 255)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.x, self.y + 5
+                    radius: [10]
+
+        MDFillRoundFlatButton:
+            text: "Start Again"
+            font_name: "LuckiestGuy"
+            font_size: '40sp'
+            size_hint: .4, .12
+            md_bg_color : rgba(251, 187, 29, 255)
+            pos_hint: {'center_x': .5, 'center_y': .15}
+            on_release:
+                app.root.get_screen('quiz').replay()

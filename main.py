@@ -16,10 +16,14 @@ class MakiniApp(MDApp):
         self.screen_manager.add_widget(self.preloader_screen)
         self.screen_manager.add_widget(SubjectListScreen())
 
-        self.screen_manager.add_widget(MathStartScreen())
+        self.screen_manager.add_widget(MathStartScreen(name='math_start'))
         self.screen_manager.add_widget(SelectSignScreen())
         self.screen_manager.add_widget(QuizScreen())
         self.screen_manager.add_widget(FinalScoreScreen())
+
+        self.screen_manager.add_widget(ScienceStartScreen())
+
+        self.screen_manager.add_widget(EnglishStartScreen())
 
         return self.screen_manager
 

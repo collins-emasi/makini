@@ -17,3 +17,7 @@ Builder.load_file("kivy-files/preloader/preloader.kv")
 Builder.load_file('kivy-files/math/select_sign.kv')
 Builder.load_file('kivy-files/math/quiz.kv')
 Builder.load_file('kivy-files/math/final_score.kv')
+
+Builder.load_file("kivy-files/science/science_start.kv")
+
+Builder.load_file("kivy-files/english/english_start.kv")
