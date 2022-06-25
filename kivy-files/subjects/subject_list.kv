@@ -4,6 +4,7 @@
     elevation: 10
     md_bg_color: 1, 1, 1, 1
     radius: [8]
+
     MDFloatLayout:
         MDFloatLayout:
             id: bar
@@ -14,10 +15,12 @@
             id: sub
             markup: True
             text: root.heading_text
-            font_name: "Andika"
-            font_size: '40sp'
+            font_name: "LuckiestGuy"
+            font_size: '30sp'
+            theme_text_color: "Custom"
+            text_color: rgba(251, 187, 29, 255)
             size_hint_x: .8
-            pos_hint: {'center_x': .46, 'center_y': .75}
+            pos_hint: {'center_x': .46, 'center_y': .65}
         MDLabel:
             id: description
             text: root.description_text
@@ -26,6 +29,12 @@
             size_hint_x: .9
             line_height: .8
             pos_hint: {'center_x': .51, 'center_y': .2}
+
+        MDIcon:
+            icon: root.icon_name
+            theme_text_color: "Custom"
+            pos_hint: {'center_x': 1.4, 'center_y': .5}
+            text_color: rgba(251, 187, 29, 255)
 
 <SearchField@MDFloatLayout>:
     size_hint: .2, .089
@@ -46,7 +55,7 @@
         cursor_color: 0, 0, 0, .5
         foreground_color: 0, 0, 0, .5
         background_color: 0, 0, 0, 0
-        font_name: "LuckiestGuy"
+        font_name: "Andika"
         cursor_width: "2sp"
         padding: 15
         font_size: "15sp"
@@ -92,18 +101,22 @@
                 spacing: 15, 10
 
                 SubjectCard:
+                    icon_name: "matrix"
                     heading_text: "Mathematics"
                     description_text: "Learn Addition, subtraction, multiplication..."
                     on_release: root.subject_choice('math_start')
                 SubjectCard:
+                    icon_name: "laptop"
                     heading_text: "English"
                     description_text: "Learn grammar, vocabularies, spelling, composition..."
                     on_release: root.subject_choice('english_start')
                 SubjectCard:
+                    icon_name: "book"
                     heading_text: "Kiswahili"
                     description_text: "Jifunze misamiati ya lugha, ngeli, mitungo..."
-                    on_release: root.subject_choice('math_start')
+                    on_release: root.subject_choice('kiswahili_start')
                 SubjectCard:
+                    icon_name: "chemical-weapon"
                     heading_text: "Science"
                     description_text: "Learn grammar, vocabularies, spelling, composition..."
                     on_release: root.subject_choice('science_start')

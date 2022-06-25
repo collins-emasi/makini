@@ -19,5 +19,8 @@ Builder.load_file('kivy-files/math/quiz.kv')
 Builder.load_file('kivy-files/math/final_score.kv')
 
 Builder.load_file("kivy-files/science/science_start.kv")
+Builder.load_file("kivy-files/science/science_topics.kv")
 
 Builder.load_file("kivy-files/english/english_start.kv")
+
+Builder.load_file("kivy-files/kiswahili/kiswahili_start.kv")

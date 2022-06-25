@@ -14,9 +14,14 @@ from kivymd.uix.screen import MDScreen
 #          MDElements                #
 ######################################
 
+class ScienceTopicsScreen(MDScreen):
+    pass
+
+
 class SubjectCard(MDCard):
     heading_text = StringProperty()
     description_text = StringProperty()
+    icon_name = StringProperty()
 
 
 class SignButton(Button):
@@ -31,9 +36,15 @@ class OptionButton(Button):
 #           MDScreens                   #
 #########################################
 
+class KiswahiliStartScreen(MDScreen):
+    def __init__(self, **kwargs):
+        super(KiswahiliStartScreen, self).__init__(**kwargs)
+        self.name = 'kiswahili_start'
+
+
 class EnglishStartScreen(MDScreen):
     def __init__(self, **kwargs):
-        super(EnglishStartScreen, self).__init__(*kwargs)
+        super(EnglishStartScreen, self).__init__(**kwargs)
         self.name = 'english_start'
 
 

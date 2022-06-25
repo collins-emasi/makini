@@ -13,17 +13,27 @@ class MakiniApp(MDApp):
         self.screen_manager = ScreenManager(transition=NoTransition())
 
     def build(self):
+        # Screen Preloader
         self.screen_manager.add_widget(self.preloader_screen)
+
+        # Subject List
         self.screen_manager.add_widget(SubjectListScreen())
 
-        self.screen_manager.add_widget(MathStartScreen(name='math_start'))
+        # Mathematics
+        self.screen_manager.add_widget(MathStartScreen())
         self.screen_manager.add_widget(SelectSignScreen())
         self.screen_manager.add_widget(QuizScreen())
         self.screen_manager.add_widget(FinalScoreScreen())
 
+        # Science
         self.screen_manager.add_widget(ScienceStartScreen())
+        self.screen_manager.add_widget(ScienceTopicsScreen())
 
+        # English
         self.screen_manager.add_widget(EnglishStartScreen())
+
+        # Kiswahili
+        self.screen_manager.add_widget(KiswahiliStartScreen())
 
         return self.screen_manager
 
